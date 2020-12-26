@@ -4,12 +4,12 @@
 # ---------------------------------------------------------------
 
 # Site
-title: NexT
+title: ZHIHA 
 subtitle:
-description: a nice blog
-author: John Doe
+description: Where there's a will, there's a way!
+author: Yao Zhiwei
 # Support language: de, en, fr-FR, id, ja, ko, pt-BR, pt, ru, zh-Hans, zh-hk, zh-tw
-language: en
+language: zh-Hans
 date_format: '%Y-%m-%d'
 
 # URL
@@ -84,12 +84,12 @@ keywords: "Jekyll, NexT"
 # Set rss to false to disable feed link.
 # Leave rss as empty to use site's feed link.
 # Set rss to specific value if you have burned your feed already.
-rss:
+rss: false
 
 repository: zhiha/zhiha.github.io
 
 # Specify the date when the site was setup
-#since: 2015
+since: 2020
 
 # icon between year and author @Footer
 authoricon: heart
@@ -154,8 +154,8 @@ menu_icons:
 
 # Schemes
 #scheme: Muse
-#scheme: Mist
-scheme: Pisces
+scheme: Mist
+#scheme: Pisces
 
 
 # ---------------------------------------------------------------
@@ -215,8 +215,10 @@ font:
 # Social Links
 # Key is the link label showing to end users.
 # Value is the target link (E.g. GitHub: https://github.com/iissnan)
-#social:
+social:
   #LinkLabel: Link
+   GitHub: https://github.com/zhiha
+   E-Mail: 213172625@seu.edu.cn
 
 
 # Social Links Icons
@@ -229,13 +231,14 @@ social_icons:
   # Icon Mappings.
   # KeyMapsToSocialItemKey: NameOfTheIconFromFontAwesome
   GitHub: github
-  Twitter: twitter
-  Weibo: weibo
+  #Twitter: twitter
+  #Weibo: weibo
+  E-Mail: envelope
 
 
 # Sidebar Avatar
 # in directory: /assets/images/avatar.gif
-#avatar:
+avatar: /assets/images/avatar.jpg
 
 
 # Table Of Contents in the Sidebar

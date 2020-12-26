@@ -97,14 +97,25 @@
             {% for name_link in site.social %}
               {% assign name = name_link[0] %}
               {% assign link = name_link[1] %}
-              <span class="links-of-author-item">
-                <a href="{{ link }}" target="_blank" title="{{ name }}">
-                  {% if site.social_icons.enable %}
-                    <i class="fa fa-fw fa-{{ site.social_icons[name] | default: 'globe' | downcase }}"></i>
-                  {% endif %}
-                  {{ name }}
-                </a>
-              </span>
+              {%- if name == 'E-Mail' -%}
+                <span class="links-of-author-item">
+                  <a href= "mailto:{{ link }}" >
+                    {% if site.social_icons.enable %}
+                      <i class="fa fa-fw fa-{{ site.social_icons[name] | default: 'globe' | downcase }}"></i>
+                    {% endif %}
+                    {{ name }}
+                  </a>
+                </span>
+              {%- else -%} 
+                <span class="links-of-author-item">
+                  <a href="{{ link }}" target="_blank" title="{{ name }}">
+                    {% if site.social_icons.enable %}
+                      <i class="fa fa-fw fa-{{ site.social_icons[name] | default: 'globe' | downcase }}"></i>
+                    {% endif %}
+                    {{ name }}
+                  </a>
+                </span>
+              {%- endif -%}
             {% endfor %}
           {% endif %}
         </div>

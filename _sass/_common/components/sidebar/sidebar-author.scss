@@ -12,6 +12,7 @@
   text-align: $site-author-name-align;
   color: $site-author-name-color;
   font-weight: $site-author-name-weight;
+  font-size: 23px;
 }
 
 .site-description {
@@ -19,4 +20,7 @@
   text-align: $site-description-align;
   font-size: $site-description-font-size;
   color: $site-description-color;
+  word-spacing: 3px;
+  font-style: italic;
+  font-size: 21px;
 }

@@ -385,7 +385,7 @@ han: false
 
 # Disqus
 disqus:
-  enable: true
+  enable: false
   shortname: zhiha
   count: true
   # hide comments (visitors need to click to load the comments)

@@ -4,6 +4,31 @@
   
   
   <entry>
+    <title>Flutter 开发</title>
+    <link href="/2025/08/03/02%20Flutter%20%E5%BC%80%E5%8F%91/"/>
+    <url>/2025/08/03/02%20Flutter%20%E5%BC%80%E5%8F%91/</url>
+    
+    <content type="html"><![CDATA[<h1 id="Windows-开发工具-–-Chocolatey"><a href="#Windows-开发工具-–-Chocolatey" class="headerlink" title="Windows 开发工具 – Chocolatey"></a>Windows 开发工具 – Chocolatey</h1><p>在 Linux 下，大家喜欢用 apt-get 来安装应用程序，如今在 windows 下，大家可以使用 Chocolatey 来快速下载搭建一个开发环境。</p><p>Chocolatey 的哲学就是完全用命令行来安装应用程序， 它更像一个包管理工具（背后使用 Nuget ）</p><p>官方文档：<a href="https://chocolatey.org/install#individual">Chocolatey</a></p><p><img src="/img/02/00.png" alt="Powershell 安装"></p><h1 id="Flutter-官方文档"><a href="#Flutter-官方文档" class="headerlink" title="Flutter 官方文档"></a>Flutter 官方文档</h1><p><a href="https://docs.flutter.cn/">Flutter 官方文档</a></p><h1 id="Flutter-开发工具-–-Cookbook"><a href="#Flutter-开发工具-–-Cookbook" class="headerlink" title="Flutter 开发工具 – Cookbook"></a>Flutter 开发工具 – Cookbook</h1><p>官方文档：<a href="https://docs.flutter.dev/cookbook">Cookbook</a></p><h1 id="Flutter-开发工具-–-Flutter-Stable-Version"><a href="#Flutter-开发工具-–-Flutter-Stable-Version" class="headerlink" title="Flutter 开发工具 – Flutter Stable Version"></a>Flutter 开发工具 – Flutter Stable Version</h1><p>官方文档：<a href="https://docs.flutter.dev/install/archive">Flutter Stable Version</a></p><h1 id="Flutter-开发工具-–-FVM"><a href="#Flutter-开发工具-–-FVM" class="headerlink" title="Flutter 开发工具 – FVM"></a>Flutter 开发工具 – FVM</h1><p>可以帮助每个Flutter项目创建独立的SDK环境，并切换版本。</p><p>官方文档：<a href="https://fvm.app/documentation/getting-started/configuration">FVM</a></p><h1 id="Flutter-项目开发步骤"><a href="#Flutter-项目开发步骤" class="headerlink" title="Flutter 项目开发步骤"></a>Flutter 项目开发步骤</h1><h2 id="创建工程"><a href="#创建工程" class="headerlink" title="创建工程"></a>创建工程</h2><p>前置条件：在Vscode中按照官方文档里已经安装好Flutter环境</p><ol><li><p>ctrl + shift + p 打开命令面板</p></li><li><p>输入 flutter ，点击 New Project<br><img src="/img/02/01.png" alt="创建Flutter工程"></p></li></ol><p>也可以使用终端命令创建工程</p><figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cmd">flutter create my_app<br></code></pre></td></tr></table></figure><p>对应fvm命令</p><figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cmd">fvm flutter create my_app<br></code></pre></td></tr></table></figure><h2 id="检查环境"><a href="#检查环境" class="headerlink" title="检查环境"></a>检查环境</h2><p>在运行flutter工程之前，请检查一下环境，运行命令为</p><figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cmd">flutter doctor<br></code></pre></td></tr></table></figure><p>如果利用fvm管理Flutter版本，则运行命令为</p><figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cmd">fvm flutter doctor<br></code></pre></td></tr></table></figure><p>先前在开发过程中，因为本地开启Clash代理，导致Flutter的Proxy设置异常，体现在运行flutter doctor时，会显示</p><figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs cmd">[!] Proxy Configuration<br>    ! NO_PROXY is <span class="hljs-keyword">not</span> <span class="hljs-built_in">set</span><br></code></pre></td></tr></table></figure><p>将NO_PROXY（大小写需要均创建到环境变量中），添加到系统环境变量中，即可解决。如果只想在终端操作临时生效，也可以输入</p><figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cmd"><span class="hljs-built_in">set</span> NO_PROXY=localhost,<span class="hljs-number">127</span>.<span class="hljs-number">0</span>.<span class="hljs-number">0</span>.<span class="hljs-number">1</span>,::<span class="hljs-number">1</span><br></code></pre></td></tr></table></figure><p>接着运行flutter doctor，可以看到如下全部为√，则说明环境没问题，可以正常运行flutter工程</p><p><img src="/img/02/02.png" alt="调试Proxy设置"></p><h2 id="调试-运行工程"><a href="#调试-运行工程" class="headerlink" title="调试 &amp; 运行工程"></a>调试 &amp; 运行工程</h2><p>记得在运行工程前，确保工程所使用的flutter版本与当前环境一致，利用fvm工具可以切换版本，例如</p><figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs cmd">fvm use <span class="hljs-number">3</span>.<span class="hljs-number">32</span>.<span class="hljs-number">0</span> （对应flutter版本）<br></code></pre></td></tr></table></figure><h3 id="vscode中调试"><a href="#vscode中调试" class="headerlink" title="vscode中调试"></a>vscode中调试</h3><p><img src="/img/02/03.png" alt="vscode 调试"></p><h3 id="终端调试"><a href="#终端调试" class="headerlink" title="终端调试"></a>终端调试</h3><p>运行命令为</p><figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs cmd">flutter run -d windows<br>flutter run -d chrome<br></code></pre></td></tr></table></figure><p>如果利用fvm管理Flutter版本，则运行命令为</p><figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs cmd">fvm flutter run -d windows<br>fvm flutter run -d chrome<br></code></pre></td></tr></table></figure><h2 id="Yaml文件配置"><a href="#Yaml文件配置" class="headerlink" title="Yaml文件配置"></a>Yaml文件配置</h2><p>官方文档：<a href="https://docs.flutter.cn/tools/pubspec/">Yaml文件配置</a></p><h1 id="Flutter-Package-开发和提交"><a href="#Flutter-Package-开发和提交" class="headerlink" title="Flutter Package 开发和提交"></a>Flutter Package 开发和提交</h1><p>官方文档：<a href="https://docs.flutter.cn/packages-and-plugins/developing-packages">Flutter Package 开发和提交</a></p>]]></content>
+    
+    
+    <categories>
+      
+      <category>Frontend</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>flutter</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>从零开始搭建个人博客</title>
     <link href="/2025/07/30/00%20%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/"/>
     <url>/2025/07/30/00%20%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/</url>
